@@ -41,7 +41,7 @@ export class JkBmsCard extends LitElement{
             cellColumns: 2,
             cellLayout: "bankMode",
             tempSensorsCount: 0,
-            hasHeater: 0,
+            hasFloat: 0,
             entities: Object.keys(EntityKey).reduce((acc, key) => {
                 acc[key as EntityKey] = '';
                 return acc;
@@ -256,11 +256,11 @@ export class JkBmsCard extends LitElement{
           </div>
         </div>
 
-        <div class="grid grid-${this._config.hasHeater=='1'?'4':'3'}">
+        <div class="grid grid-${this._config.hasFloat=='1'?'4':'3'}">
           ${this._renderSwitch(EntityKey.charging, 'charge')}
           ${this._renderSwitch(EntityKey.discharging, 'discharge')}
           ${this._renderSwitch(EntityKey.balancer, 'balance')}
-          ${this._config.hasHeater == '1' ? this._renderSwitch(EntityKey.heater, 'heater') : ''}
+          ${this._config.hasFloat == '1' ? this._renderSwitch(EntityKey.float, 'float') : ''}
         </div>
           
           ${this._renderError()}
