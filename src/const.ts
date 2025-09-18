@@ -5,7 +5,7 @@ export enum EntityKey {
     delta_cell_voltage ='delta_cell_voltage',
     balancing_current ='balancing_current',
     power ='power',
-    balance_starting_voltage ='balance_starting_voltage',
+    balance_trigger_voltage ='balance_trigger_voltage',
     total_runtime_formatted ='total_runtime_formatted',
     charging ='charging',
     discharging ='discharging',
