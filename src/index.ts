@@ -438,7 +438,8 @@ export class JkBmsCard extends LitElement{
 
         if (!path) return;
 
-        if ((!this.shouldBalance && balanceCurrent === 0) || !minEl || !maxEl) {
+//        if ((!this.shouldBalance && balanceCurrent === 0) || !minEl || !maxEl) {
+        if ((balanceCurrent === 0) || !minEl || !maxEl) {
             path.setAttribute('d', '');
             path.style.display = 'none';
             return;
