@@ -101,6 +101,23 @@ export class JkBmsCardEditor extends LitElement implements LovelaceCardEditor {
                         ],
                     },
                     {
+                        type: 'grid',
+                        title: localize('config.hasFloat'),
+                        schema: [
+                            {
+                                type: 'grid',
+                                schema: [
+                                    {name: 'hasFloat', selector: {
+                                        select: { multiple: false, mode: "list", options: [
+                                          {label: "Yes", value: "1"},
+                                          {label: "No", value: "0"}
+                                        ]}
+                                    }},
+                                ],
+                            },
+                        ],
+                    },
+                    {
                         type: 'expandable',
                         title: localize('config.manualAssignment'),
                         schema: [
