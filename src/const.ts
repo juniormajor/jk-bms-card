@@ -12,7 +12,7 @@ export enum EntityKey {
     balancer ='balancer',
     float ='charging_float_mode',
     total_voltage ='total_voltage',
-    total_battery_capacity_setting ='total_battery_capacity_setting',
+    charge_status ='charge_status',
     total_charging_cycle_capacity ='total_charging_cycle_capacity',
     average_cell_voltage ='average_cell_voltage',
     current ='current',
