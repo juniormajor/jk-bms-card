@@ -245,7 +245,7 @@ export class JkBmsCard extends LitElement{
         const balanceCurrent = parseFloat(this.getState(EntityKey.balancing_current, 2, '0'));
         const powerNumber = parseFloat(this.getState(EntityKey.power, 2, '0'));
         const currentNumber = parseFloat(this.getState(EntityKey.current, 2, '0'));
-        const triggerV= Number(this.getState(EntityKey.balance_starting_voltage, 2, "", "number"));
+        const triggerV= Number(this.getState(EntityKey.balance_trigger_voltage, 3, "", "number"));
 
         this.shouldBalance = this.maxDeltaV >= triggerV;
 
@@ -279,8 +279,8 @@ export class JkBmsCard extends LitElement{
               ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge)} %</span><br>
               ${localize('stats.voltage')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span><br>
               ${localize('stats.averageCellV')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
-              ${localize('stats.delta')} <span class="${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.maxDeltaV.toFixed(3)} V </span><br>
-              ${localize('stats.balanceCurrent')} <span class="${balanceClass}">${balanceCurrent.toFixed(1)} A</span>
+              ${localize('stats.delta')} <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage)} V </span><br>
+              ${localize('stats.balanceCurrent')} <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balanceCurrent)}>${this.getState(EntityKey.balanceCurrent, 3)} A</span><br>
               ${this._renderTemps(1)}
           </div>
 
