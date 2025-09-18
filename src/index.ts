@@ -267,28 +267,20 @@ export class JkBmsCard extends LitElement{
 
         <div class="grid grid-2 section-padding">
           <div class="stats-padding stats-border">
-            <div class="clickable center" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>
-              <b><font color="#41CD52" size="6">${this.getState(EntityKey.total_voltage)} V</font></b>
-            </div>
-              ${localize('stats.power')} <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power)} W</span><br>
-              ${localize('stats.status')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)} Ah</span><br>
-              ${localize('stats.cycleCapacity')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_charging_cycle_capacity)}>${this.getState(EntityKey.total_charging_cycle_capacity)} Ah</span><br>
+              ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge)} %</span><br>
+              ${localize('stats.voltage')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span><br>
               ${localize('stats.averageCellV')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
-              ${localize('stats.balanceCurrent')} <span class="${balanceClass}">
-              ${balanceCurrent.toFixed(1)} A
-            </span>
+              ${localize('stats.delta')} <span class="${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.maxDeltaV.toFixed(3)} V </span><br>
+              ${localize('stats.balanceCurrent')} <span class="${balanceClass}">${balanceCurrent.toFixed(1)} A</span>
               ${this._renderTemps(1)}
           </div>
 
           <div class="stats-padding stats-border">
-            <div class="clickable center" @click=${(e) => this._navigate(e, EntityKey.current)}>
-              <b><font color="#41CD52" size="6">${this.getState(EntityKey.current)} A</font></b>
-            </div>
-              ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge)} %</span><br>
-              ${localize('stats.remainingAmps')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining)} Ah</span><br>
+              ${localize('stats.status')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)}</span><br>
+              ${localize('stats.power')} <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power)} W</span><br>
+              ${localize('stats.current')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current)} A</span><br>
               ${localize('stats.cycles')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charging_cycles)}>${this.getState(EntityKey.charging_cycles)}</span><br>
-              ${localize('stats.delta')} <span class="${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.maxDeltaV.toFixed(3)} V </span><br>
-              ${localize('stats.mosfetTemp')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.power_tube_temperature)}>${this.getState(EntityKey.power_tube_temperature)} °C</span>
+              ${localize('stats.cycleCapacity')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_charging_cycle_capacity)}>${this.getState(EntityKey.total_charging_cycle_capacity)} Ah</span><br>
               ${this._renderTemps(2)}
           </div>
         </div>
