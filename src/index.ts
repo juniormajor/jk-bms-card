@@ -275,7 +275,7 @@ export class JkBmsCard extends LitElement{
           ${this._renderError()}
 
         <div class="grid grid-2 section-padding">
-          <div class="stats-padding stats-border">
+          <div class="stats-padding stats-border center">
               ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span><br>
               ${localize('stats.voltage')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span><br>
               ${localize('stats.averageCellV')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
@@ -284,7 +284,7 @@ export class JkBmsCard extends LitElement{
               ${this._renderTemps(1)}
           </div>
 
-          <div class="stats-padding stats-border">
+          <div class="stats-padding stats-border center">
               ${localize('stats.status')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)}</span><br>
               ${localize('stats.power')} <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power, 2)} W</span><br>
               ${localize('stats.current')} <span class="clickable ${currentClass}" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current, 2)} A</span><br>
