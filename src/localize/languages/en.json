@@ -22,7 +22,7 @@
   },
   "stats": {
     "power": "Power:",
-    "capacity": "Capacity:",
+    "status": "Status:",
     "cycleCapacity": "Cycle Cap:",
     "averageCellV": "Avg Cell V:",
     "balanceCurrent": "Balance Cur:",
