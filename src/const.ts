@@ -11,6 +11,7 @@ export enum EntityKey {
     discharging ='discharging',
     balancer ='balancer',
     heater ='heater',
+    float ='float',
     total_voltage ='total_voltage',
     total_battery_capacity_setting ='total_battery_capacity_setting',
     total_charging_cycle_capacity ='total_charging_cycle_capacity',
