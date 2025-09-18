@@ -85,23 +85,6 @@ export class JkBmsCardEditor extends LitElement implements LovelaceCardEditor {
                     },
                     {
                         type: 'grid',
-                        title: localize('config.hasHeater'),
-                        schema: [
-                            {
-                                type: 'grid',
-                                schema: [
-                                    {name: 'hasHeater', selector: {
-                                        select: { multiple: false, mode: "list", options: [
-                                          {label: "Yes", value: "1"},
-                                          {label: "No", value: "0"}
-                                        ]}
-                                    }},
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        type: 'grid',
                         title: localize('config.hasFloat'),
                         schema: [
                             {
