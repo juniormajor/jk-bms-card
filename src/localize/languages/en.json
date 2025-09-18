@@ -12,13 +12,13 @@
     "cellLayout": "Cell Layout",
     "manualAssignment": "Manual entity assignment",
     "tempSensorsCount": "Number of temperature sensors available",
-    "hasHeater": "Heater option is used"
+    "hasFloat": "Float option is used"
   },
   "switches": {
     "charge": "Charge",
     "discharge": "Discharge",
     "balance": "Balance",
-    "heater": "Heater"
+    "float": "Float"
   },
   "stats": {
     "power": "Power:",
