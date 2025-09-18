@@ -21,6 +21,7 @@
     "float": "Float"
   },
   "stats": {
+    "voltage": "Voltage:",    
     "power": "Power:",
     "status": "Status:",
     "cycleCapacity": "Cycle Cap:",
