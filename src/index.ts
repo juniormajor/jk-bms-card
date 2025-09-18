@@ -92,6 +92,15 @@ export class JkBmsCard extends LitElement{
         .power-even {
             color: #808080
         }
+        .current-negative {
+            color: red
+        }
+        .current-positive {
+            color: #41cd52
+        }
+        .current-even {
+            color: #808080
+        }
         .balance-positive {
             color: red
         }
@@ -235,13 +244,13 @@ export class JkBmsCard extends LitElement{
         this.maxDeltaV = parseFloat(this.getState(EntityKey.delta_cell_voltage, 3, '0'));
         const balanceCurrent = parseFloat(this.getState(EntityKey.balancing_current, 2, '0'));
         const powerNumber = parseFloat(this.getState(EntityKey.power, 2, '0'));
-        const triggerV= Number(this.getState(EntityKey.balance_trigger_voltage, 2, "", "number"));
-
-        this.shouldBalance = this.maxDeltaV >= triggerV;
+        const currentNumber = parseFloat(this.getState(EntityKey.current, 2, '0'));
+        const triggerV= Number(this.getState(EntityKey.balance_starting_voltage, 2, "", "number"));
 
         this.shouldBalance = this.maxDeltaV >= triggerV;
 
         const powerClass = powerNumber > 0 ? 'power-positive' : powerNumber < 0 ? 'power-negative' : 'power-even'
+        const currentClass = currentNumber > 0 ? 'current-positive' : currentNumber < 0 ? 'current-negative' : 'current-even'
         const balanceClass = balanceCurrent > 0 ? 'balance-positive' : balanceCurrent < 0 ? 'balance-negative' : 'balance-even';
         const deltaClass = this.shouldBalance ? 'delta-needs-balancing' : 'delta-ok';
 
@@ -278,7 +287,7 @@ export class JkBmsCard extends LitElement{
           <div class="stats-padding stats-border">
               ${localize('stats.status')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)}</span><br>
               ${localize('stats.power')} <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power)} W</span><br>
-              ${localize('stats.current')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current)} A</span><br>
+              ${localize('stats.current')} <span class="clickable ${currentClass}" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current)} A</span><br>
               ${localize('stats.cycles')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charging_cycles)}>${this.getState(EntityKey.charging_cycles)}</span><br>
               ${localize('stats.cycleCapacity')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_charging_cycle_capacity)}>${this.getState(EntityKey.total_charging_cycle_capacity)} Ah</span><br>
               ${this._renderTemps(2)}
