@@ -279,7 +279,7 @@ export class JkBmsCard extends LitElement{
               ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span><br>
               ${localize('stats.voltage')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span><br>
               ${localize('stats.averageCellV')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
-              ${localize('stats.delta')} <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage) * 1000} mV </span><br>
+              ${localize('stats.delta')} <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage), 3} V </span><br>
               ${localize('stats.balanceCurrent')} <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balancing_current)}>${this.getState(EntityKey.balancing_current, 3)} A</span><br>
               ${this._renderTemps(1)}
           </div>
@@ -406,7 +406,7 @@ export class JkBmsCard extends LitElement{
 
     private _createCell(i) {
         const voltage = this.getState(EntityKey[`cell_voltage_${i}`], 3, '0.0');
-        const resistance = this.getState(EntityKey[`cell_resistance_${i}`], 0) * 1000;
+        const resistance = this.getState(EntityKey[`cell_resistance_${i}`], 0);
         const minCell = this.minCellId;
         const maxCell = this.maxCellId;
 
@@ -416,7 +416,7 @@ export class JkBmsCard extends LitElement{
 
         let resistanceHtml = resistance == '' ? '' : html`
             <span class="clickable" @click=${(e) => this._navigate(e, EntityKey[`cell_resistance_${i}`])}>
-            / ${resistance} mΩ
+            / ${resistance} Ω
           </span>`
 
         return html`
