@@ -76,8 +76,8 @@ export class JkBmsCard extends LitElement{
             cursor: pointer;
         }
         .section-padding {
-            padding-top: 0.45rem;
-            padding-bottom: 0.45rem;
+            padding-top: 0.2rem; #45rem;
+            padding-bottom: 0.2rem; #45rem;
         }
         .stats-padding {
 #            padding-top: 0.45rem;
@@ -133,8 +133,8 @@ export class JkBmsCard extends LitElement{
             font-style: italic;
         }
         .button-padding {
-            padding-top: 0.45rem;
-            padding-bottom: 0.45rem;
+            padding-top: 0.2rem; #45rem;
+            padding-bottom: 0.2rem; #45rem;
         }
         .status-on { color: #41cd52; }
         .status-off { color: red; }
