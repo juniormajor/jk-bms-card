@@ -77,11 +77,11 @@ export class JkBmsCard extends LitElement{
         }
         .section-padding {
             padding-top: 0.45rem;
-            padding-bottom: 0.75rem;
+            padding-bottom: 0.45rem;
         }
         .stats-padding {
-            padding-top: 0.75rem;
-            padding-left: 0.75rem;
+            padding-top: 0.45rem;
+            padding-left: 0.45rem;
         }
         .power-negative {
             color: red
@@ -120,19 +120,21 @@ export class JkBmsCard extends LitElement{
             border-width: var(--ha-card-border-width, 1px);
             border-style: solid;
             border-color: var(--ha-card-border-color, var(--divider-color, #e0e0e0));
+            border-radius: 6px;';
         }
         .button-border {
             border-width: var(--ha-card-border-width, 1px);
             border-style: solid;
             border-color: var(--ha-card-border-color, var(--divider-color, #e0e0e0));
+            border-radius: 6px;';
         }
         .error-message {
             color: red;
             font-style: italic;
         }
         .button-padding {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
+            padding-top: 0.45rem;
+            padding-bottom: 0.45rem;
         }
         .status-on { color: #41cd52; }
         .status-off { color: red; }
