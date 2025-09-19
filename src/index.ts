@@ -80,8 +80,8 @@ export class JkBmsCard extends LitElement{
             padding-bottom: 0.45rem;
         }
         .stats-padding {
-            padding-top: 0.45rem;
-            padding-left: 0.45rem;
+#            padding-top: 0.45rem;
+#            padding-left: 0.45rem;
         }
         .power-negative {
             color: red
