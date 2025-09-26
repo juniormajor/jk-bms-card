@@ -278,7 +278,7 @@ export class JkBmsCard extends LitElement{
 
         <div class="grid grid-2 section-padding">
           <div class="stats-padding stats-border center">
-              ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span><br>
+              ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> / ${localize('stats.capacity_remaining')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span><br>
               ${localize('stats.voltage')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span><br>
               ${localize('stats.averageCellV')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
               ${localize('stats.delta')} <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage, 3)} V </span><br>
