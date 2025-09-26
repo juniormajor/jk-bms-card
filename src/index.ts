@@ -278,20 +278,16 @@ export class JkBmsCard extends LitElement{
 
         <div class="grid grid-2 section-padding">
           <div class="stats-padding stats-border center">
-              ${localize('stats.stateOfCharge')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span><br>
-              ${localize('stats.voltage')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span><br>
-              ${localize('stats.averageCellV')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
-              ${localize('stats.delta')} <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage, 3)} V </span><br>
-              ${localize('stats.balanceCurrent')} <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balancing_current)}>${this.getState(EntityKey.balancing_current, 3)} A</span><br>
+              SOC: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span><br>
+              V: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
+              Delta: <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage, 3)} V </span> / <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balancing_current)}>${this.getState(EntityKey.balancing_current, 3)} A</span><br>
               ${this._renderTemps(1)}
           </div>
 
           <div class="stats-padding stats-border center">
-              ${localize('stats.status')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)}</span><br>
-              ${localize('stats.power')} <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power, 2)} W</span><br>
-              ${localize('stats.current')} <span class="clickable ${currentClass}" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current, 2)} A</span><br>
-              ${localize('stats.cycles')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charging_cycles)}>${this.getState(EntityKey.charging_cycles, 0)}</span><br>
-              ${localize('stats.cycleCapacity')} <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_charging_cycle_capacity)}>${this.getState(EntityKey.total_charging_cycle_capacity, 0)} Ah</span><br>
+              Status: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)}</span><br>
+              Power: <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power, 2)} W</span> / <span class="clickable ${currentClass}" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current, 2)} A</span><br>
+              Cycles: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charging_cycles)}>${this.getState(EntityKey.charging_cycles, 0)}</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_charging_cycle_capacity)}>${this.getState(EntityKey.total_charging_cycle_capacity, 0)} Ah</span><br>
               ${this._renderTemps(2)}
           </div>
         </div>
