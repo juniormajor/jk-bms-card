@@ -32,6 +32,7 @@
     "remainingAmps": "Remaining:",
     "cycles": "Cycles:",
     "delta": "Delta:",
+    "remaining": "Remaining:",    
     "mosfetTemp": "MOS Temp:",
     "temperature_sensor_1": "Temp. 1:",
     "temperature_sensor_2": "Temp. 2:",
