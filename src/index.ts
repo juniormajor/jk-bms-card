@@ -278,9 +278,9 @@ export class JkBmsCard extends LitElement{
 
         <div class="grid grid-2 section-padding">
           <div class="stats-padding stats-border center">
-              SOC: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span><br>
-              V: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
-              Delta: <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage, 3)} V </span> / <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balancing_current)}>${this.getState(EntityKey.balancing_current, 3)} A</span><br>
+              SoC: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span><br>
+              Voltage: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span> / <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span><br>
+              &#916: <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage, 3)} V </span> / <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balancing_current)}>${this.getState(EntityKey.balancing_current, 3)} A</span><br>
               ${this._renderTemps(1)}
           </div>
 
