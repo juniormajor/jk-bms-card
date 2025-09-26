@@ -21,6 +21,7 @@
     "float": "Float"
   },
   "stats": {
+    "capacity_remaining": "Ah:",
     "voltage": "Voltage:",
     "current": "Current:",  
     "power": "Power:",
