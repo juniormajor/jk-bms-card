@@ -129,7 +129,6 @@ export class JkBmsCard extends LitElement{
             border-radius: 6px;';
         }
         .error-message {
-            text-align: center;
             color: red;
             font-style: italic;
         }
@@ -168,11 +167,13 @@ export class JkBmsCard extends LitElement{
             color: red
         }
         .cell-ok {
-        }
+            color: black
+		}
         .pack-low {
             color: red
         }		
         .pack-ok {
+            color: black
         }		
         
         line {
@@ -340,7 +341,7 @@ export class JkBmsCard extends LitElement{
         if (state.trim().length <= 1 || state == '0') {
             return html``
         }
-        return html`<span class="error-message">${state}</span>`
+        return html`<span class="center error-message">${state}</span>`
     }
 
     private _renderTemps(placement): TemplateResult {
