@@ -129,6 +129,7 @@ export class JkBmsCard extends LitElement{
             border-radius: 6px;';
         }
         .error-message {
+            text-align: center;
             color: red;
             font-style: italic;
         }
@@ -162,6 +163,17 @@ export class JkBmsCard extends LitElement{
             pointer-events: none;
             z-index: 1;
         }
+		
+        .cell-low {
+            color: red
+        }
+        .cell-ok {
+        }
+        .pack-low {
+            color: red
+        }		
+        .pack-ok {
+        }		
         
         line {
             stroke: #3090C7;
@@ -256,6 +268,13 @@ export class JkBmsCard extends LitElement{
         const balanceClass = balanceCurrent > 0 ? 'balance-positive' : balanceCurrent < 0 ? 'balance-negative' : 'balance-even';
         const deltaClass = this.shouldBalance ? 'delta-needs-balancing' : 'delta-ok';
 
+
+		const cellVoltageNumber = parseFloat(this.getState(EntityKey.min_cell_voltage, 2, '0'));
+		const packVoltageNumber = parseFloat(this.getState(EntityKey.total_voltage, 2, '0'));
+
+        const cellVoltageClass = cellVoltageNumber > 3 ? 'cell-ok' : 'cell-low'
+		const packVoltageClass = packVoltageNumber > 48 ? 'pack-ok' : 'pack-low'
+
         const runtime = this.getState(EntityKey.total_runtime_formatted);
         const header = runtime && runtime != "unknown" ? html` | Time: <b><font color="#3090C7">${runtime.toUpperCase()}</font></b>` : ''
 
@@ -278,8 +297,8 @@ export class JkBmsCard extends LitElement{
 
         <div class="grid grid-2 section-padding">
           <div class="stats-padding stats-border center">
-              SoC: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 2)} V</span><br>
-              Cells: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.min_cell_voltage)}>${this.getState(EntityKey.min_cell_voltage, 2)} V &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 2)} V</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.max_cell_voltage)}>${this.getState(EntityKey.max_cell_voltage, 2)} V</span><br>
+              SoC: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span> &nbsp/&nbsp <span class="clickable ${packVoltageClass}" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 2)} V</span><br>
+              Cells: <span class="clickable ${cellVoltageClass}" @click=${(e) => this._navigate(e, EntityKey.min_cell_voltage)}>${this.getState(EntityKey.min_cell_voltage, 2)} V &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 2)} V</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.max_cell_voltage)}>${this.getState(EntityKey.max_cell_voltage, 2)} V</span><br>
               Delta: <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage, 3)} V </span> &nbsp/&nbsp <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balancing_current)}>${this.getState(EntityKey.balancing_current, 1)} A</span><br>
               ${this._renderTemps(1)}
           </div>
@@ -321,7 +340,7 @@ export class JkBmsCard extends LitElement{
         if (state.trim().length <= 1 || state == '0') {
             return html``
         }
-        return html`<span class="error-message" center>${state}</span>`
+        return html`<span class="error-message">${state}</span>`
     }
 
     private _renderTemps(placement): TemplateResult {
