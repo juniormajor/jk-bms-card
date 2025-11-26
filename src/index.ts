@@ -129,6 +129,8 @@ export class JkBmsCard extends LitElement{
             border-radius: 6px;';
         }
         .error-message {
+			font-weight: bold;
+            padding-left: 2rem;
             color: red;
             font-style: italic;
         }
