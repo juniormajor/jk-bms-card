@@ -15,6 +15,8 @@ export enum EntityKey {
     charge_status ='charge_status',
     total_charging_cycle_capacity ='total_charging_cycle_capacity',
     average_cell_voltage ='average_cell_voltage',
+    min_cell_voltage ='min_cell_voltage',
+    max_cell_voltage ='max_cell_voltage',
     current ='current',
     state_of_charge ='state_of_charge',
     state_of_health ='state_of_health',
