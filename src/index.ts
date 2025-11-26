@@ -321,7 +321,7 @@ export class JkBmsCard extends LitElement{
         if (state.trim().length <= 1 || state == '0') {
             return html``
         }
-        return html`<span class="error-message center">${state}</span>`
+        return html`<span class="error-message" center>${state}</span>`
     }
 
     private _renderTemps(placement): TemplateResult {
