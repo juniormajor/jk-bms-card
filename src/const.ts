@@ -17,6 +17,7 @@ export enum EntityKey {
     average_cell_voltage ='average_cell_voltage',
     current ='current',
     state_of_charge ='state_of_charge',
+    state_of_health ='state_of_health',
     capacity_remaining ='capacity_remaining',
     charging_cycles ='charging_cycles',
     power_tube_temperature ='power_tube_temperature',
