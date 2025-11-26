@@ -278,15 +278,15 @@ export class JkBmsCard extends LitElement{
 
         <div class="grid grid-2 section-padding">
           <div class="stats-padding stats-border center">
-              SoC: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span> &nbsp/&nbsp SoH: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_health)}>${this.getState(EntityKey.state_of_health, 0)} %</span><br>
-              Cells: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.min_cell_voltage)}>${this.getState(EntityKey.min_cell_voltage, 3)} V &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 3)} V</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.max_cell_voltage)}>${this.getState(EntityKey.max_cell_voltage, 3)} V</span><br>
+              SoC: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_charge)}>${this.getState(EntityKey.state_of_charge, 0)} %</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.capacity_remaining)}>${this.getState(EntityKey.capacity_remaining, 0)} Ah</span><br>
+              Cells: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.min_cell_voltage)}>${this.getState(EntityKey.min_cell_voltage, 2)} V &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.average_cell_voltage)}>${this.getState(EntityKey.average_cell_voltage, 2)} V</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.max_cell_voltage)}>${this.getState(EntityKey.max_cell_voltage, 2)} V</span><br>
               Delta: <span class="clickable ${deltaClass}" @click=${(e) => this._navigate(e, EntityKey.delta_cell_voltage)}> ${this.getState(EntityKey.delta_cell_voltage, 3)} V </span> &nbsp/&nbsp <span class="clickable ${balanceClass}" @click=${(e) => this._navigate(e, EntityKey.balancing_current)}>${this.getState(EntityKey.balancing_current, 1)} A</span><br>
               ${this._renderTemps(1)}
           </div>
 
           <div class="stats-padding stats-border center">
-              Status: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)}</span><br>
-              Power: <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power, 0)} W</span> &nbsp/&nbsp <span class="clickable ${currentClass}" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current, 1)} A</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 3)} V</span><br>
+              Status: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charge_status)}>${this.getState(EntityKey.charge_status)}</span> &nbsp/&nbsp SoH: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.state_of_health)}>${this.getState(EntityKey.state_of_health, 0)} %</span><br>
+              Power: <span class="clickable ${powerClass}" @click=${(e) => this._navigate(e, EntityKey.power)}>${this.getState(EntityKey.power, 0)} W</span> &nbsp/&nbsp <span class="clickable ${currentClass}" @click=${(e) => this._navigate(e, EntityKey.current)}>${this.getState(EntityKey.current, 1)} A</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_voltage)}>${this.getState(EntityKey.total_voltage, 2)} V</span><br>
               Cycles: <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.charging_cycles)}>${this.getState(EntityKey.charging_cycles, 0)}</span> &nbsp/&nbsp <span class="clickable" @click=${(e) => this._navigate(e, EntityKey.total_charging_cycle_capacity)}>${this.getState(EntityKey.total_charging_cycle_capacity, 0)} Ah</span><br>
               ${this._renderTemps(2)}
           </div>
@@ -321,7 +321,7 @@ export class JkBmsCard extends LitElement{
         if (state.trim().length <= 1 || state == '0') {
             return html``
         }
-        return html`<span class="error-message">${state}</span>`
+        return html`<span class="error-message center">${state}</span>`
     }
 
     private _renderTemps(placement): TemplateResult {
