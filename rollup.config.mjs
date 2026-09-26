@@ -13,7 +13,7 @@ const plugins = [
     }),
     eslint(),
     commonjs(),
-    typescript(),
+    typescript({ include: ['**/*.ts'] }),
     json(),
     babel({
         exclude: 'node_modules/**',
