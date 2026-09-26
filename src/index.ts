@@ -438,16 +438,14 @@ export class JkBmsCard extends LitElement{
           </span>`
 
         return html`
-
-			<div class="center cell-container" id="cell-${i}">
+            <div class="center cell-container" id="cell-${i}">
             <span class="clickable" @click=${(e) => this._navigate(e, EntityKey[`cell_voltage_${i}`],)}>
                 <span class="pill">${i.toString().padStart(2, '0')}</span>
             ${color ? html`<span class="${color}">${voltage} V</span>` : html`${voltage} V`}
           </span>
-//                ${resistanceHtml}
+                ${resistanceHtml}
             </div>
-
-		  `;
+        `;
     }
     private _updateFlowLine() {
         const balanceCurrent = parseFloat(this.getState(EntityKey.balancing_current, 3, '0'));
