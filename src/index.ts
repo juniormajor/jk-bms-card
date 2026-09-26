@@ -443,10 +443,10 @@ export class JkBmsCard extends LitElement{
             <span class="clickable" @click=${(e) => this._navigate(e, EntityKey[`cell_voltage_${i}`],)}>
                 <span class="pill">${i.toString().padStart(2, '0')}</span>
             ${color ? html`<span class="${color}">${voltage} V</span>` : html`${voltage} V`}
-/*          </span>
-                ${resistanceHtml}
+          </span>
+//                ${resistanceHtml}
             </div>
-*/
+
 		  `;
     }
     private _updateFlowLine() {
