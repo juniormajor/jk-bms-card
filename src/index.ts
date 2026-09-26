@@ -424,7 +424,7 @@ export class JkBmsCard extends LitElement{
 
     private _createCell(i) {
         const voltage = this.getState(EntityKey[`cell_voltage_${i}`], 3, '0.0');
-        const resistance = this.getState(EntityKey[`cell_resistance_${i}`], 3);
+//        const resistance = this.getState(EntityKey[`cell_resistance_${i}`], 3);
         const minCell = this.minCellId;
         const maxCell = this.maxCellId;
 
@@ -432,18 +432,18 @@ export class JkBmsCard extends LitElement{
             : i.toString() === maxCell ? 'voltage-high'
             : '';
 
-        let resistanceHtml = resistance == '' ? '' : html`
-            <span class="clickable" @click=${(e) => this._navigate(e, EntityKey[`cell_resistance_${i}`])}>
-            / ${resistance} Ω
-          </span>`
+//        let resistanceHtml = resistance == '' ? '' : html`
+//            <span class="clickable" @click=${(e) => this._navigate(e, EntityKey[`cell_resistance_${i}`])}>
+//            / ${resistance} Ω
+//          </span>`
 
-        return html`
+//        return html`
             <div class="center cell-container" id="cell-${i}">
             <span class="clickable" @click=${(e) => this._navigate(e, EntityKey[`cell_voltage_${i}`],)}>
                 <span class="pill">${i.toString().padStart(2, '0')}</span>
             ${color ? html`<span class="${color}">${voltage} V</span>` : html`${voltage} V`}
           </span>
-                ${resistanceHtml}
+//                ${resistanceHtml}
             </div>
         `;
     }
